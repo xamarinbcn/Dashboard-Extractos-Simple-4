@@ -4,7 +4,7 @@
  * Cubre: U-ERRORS-001, U-I18N-001 a U-I18N-004, U-FORMAT-001, U-IBAN-001 a U-IBAN-003
  */
 
-import { runSuite, test, assertEqual, assertTrue, assertFalse } from '../harness/runner.js';
+import { runSuite, test, assertEqual, assertTrue, assertFalse } from './harness/runner.js';
 import { ERRORS } from '../../utils/errors.js';
 import { getKeysForLanguage, compareLanguageKeys, t } from '../../utils/i18n.js';
 

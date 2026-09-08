@@ -4,7 +4,7 @@
  * Cubre: U-RANGO-001, U-RANGO-002
  */
 
-import { runSuite, test, assertEqual, assertTrue } from '../harness/runner.js';
+import { runSuite, test, assertEqual, assertTrue } from './harness/runner.js';
 import { calcularRangoImporte, getAllRangos, isValidRango } from '../../crypto/rango-importe.js';
 
 export async function runRangoImporteTests() {

@@ -4,7 +4,7 @@
  * Cubre: U-CRYPTO-001 a U-CRYPTO-008
  */
 
-import { runSuite, test, assertEqual, assertTrue, assertFalse, assertRejectsWithCode } from '../harness/runner.js';
+import { runSuite, test, assertEqual, assertTrue, assertFalse, assertRejectsWithCode } from './harness/runner.js';
 import { deriveKey, deriveHmacKey, generateSalt, validatePasswordPolicy, normalizeNFC } from '../../crypto/pbkdf2.js';
 import { encrypt, decrypt, generateFraseDatos, stringToBytes, bytesToString } from '../../crypto/aes-gcm.js';
 import { AppError } from '../../utils/errors.js';

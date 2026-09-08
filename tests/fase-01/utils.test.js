@@ -19,9 +19,9 @@ export async function runUtilsTests() {
       assertEqual(codes.length, uniqueCodes.size, 'No debe haber códigos duplicados');
       
       // Verificar formato XX-###
-      const codeRegex = /^[A-Z]{2}-\d{3}$/;
+      const codeRegex = /^[A-Z]{2,3}-\d{3}$/;
       for (const code of codes) {
-        assertTrue(codeRegex.test(code), `Código ${code} debe tener formato XX-###`);
+        assertTrue(codeRegex.test(code), `Código ${code} debe tener formato XX-### o XXX-###`);
       }
     });
     

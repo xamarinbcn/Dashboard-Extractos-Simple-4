@@ -82,7 +82,7 @@ export async function deriveKey(password, salt, iterations = PBKDF2_ITERATIONS) 
       keyMaterial,
       {
         name: 'AES-GCM',
-        length: 256
+        length: 128
       },
       false,  // No extraíble por seguridad
       ['encrypt', 'decrypt']
@@ -138,7 +138,7 @@ export async function deriveHmacKey(password, salt, iterations = PBKDF2_ITERATIO
       {
         name: 'HMAC',
         hash: { name: 'SHA-256' },
-        length: 256
+        length: 128
       },
       false,
       ['sign', 'verify']
@@ -203,4 +203,3 @@ export function validatePasswordPolicy(password, confirm) {
   
   return { valid: true };
 }
-hola

@@ -203,3 +203,4 @@ export function validatePasswordPolicy(password, confirm) {
   
   return { valid: true };
 }
+hola

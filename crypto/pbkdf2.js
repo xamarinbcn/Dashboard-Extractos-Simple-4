@@ -77,7 +77,7 @@ export async function deriveKey(password, salt, iterations = PBKDF2_ITERATIONS) 
         name: 'PBKDF2',
         salt: salt,
         iterations: iterations,
-        hash: 'SHA-256'
+        hash: { name: 'SHA-256' }
       },
       keyMaterial,
       {
@@ -132,12 +132,12 @@ export async function deriveHmacKey(password, salt, iterations = PBKDF2_ITERATIO
         name: 'PBKDF2',
         salt: salt,
         iterations: iterations,
-        hash: 'SHA-256'
+        hash: { name: 'SHA-256' }
       },
       keyMaterial,
       {
         name: 'HMAC',
-        hash: 'SHA-256',
+        hash: { name: 'SHA-256' },
         length: 256
       },
       false,

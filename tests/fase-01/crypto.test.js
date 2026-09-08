@@ -178,19 +178,27 @@ export async function runCryptoTests() {
     await test('U-CRYPTO-009: Normalización NFC de contraseña', async () => {
       // Contraseña con carácter que puede tener formas normales diferentes
       // ñ puede ser U+00F1 (ñ precompuesta) o U+006E U+0303 (n + tilde combinante)
-      const passwordNFD = 'passwo\u006E\u0303d';  // n + combining tilde
-      const passwordNFC = 'passwónd'.normalize('NFC');
+      const passwordNFD = 'passwo\u006E\u0303d';  // n + combining tilde (NFD)
+      const passwordNFC = passwordNFD.normalize('NFC');  // Debería ser igual después de normalizar
       
-      const normalized = normalizeNFC(passwordNFD);
-      
-      // Después de normalizar NFC, debería ser igual que la versión NFC directa
+      // Ambas formas deben producir la MISMA clave derivada después de normalización NFC
       const salt = generateSalt(16);
-      const key1 = await deriveKey(normalized, salt);
-      const key2 = await deriveKey(passwordNFC.replace('ó', 'o'), salt);  // Diferente por la ó
       
-      // La clave derivada de passwordNFD normalizado NFC debe ser consistente
-      const export1 = await crypto.subtle.exportKey('raw', key1);
-      assertTrue(export1.byteLength > 0, 'Clave derivada de NFC debe ser válida');
+      // Derivar clave desde versión NFD (se normaliza internamente en deriveKey)
+      const keyFromNFD = await deriveKey(passwordNFD, salt);
+      
+      // Derivar clave desde versión ya normalizada NFC
+      const keyFromNFC = await deriveKey(passwordNFC, salt);
+      
+      // Exportar ambas claves
+      const exportNFD = await crypto.subtle.exportKey('raw', keyFromNFD);
+      const exportNFC = await crypto.subtle.exportKey('raw', keyFromNFC);
+      
+      // Deben ser idénticas porque deriveKey normaliza NFC internamente
+      const hashNFD = Array.from(new Uint8Array(exportNFD)).map(b => b.toString(16).padStart(2, '0')).join('');
+      const hashNFC = Array.from(new Uint8Array(exportNFC)).map(b => b.toString(16).padStart(2, '0')).join('');
+      
+      assertEqual(hashNFD, hashNFC, 'Claves derivadas deben ser idénticas independientemente de la forma normal');
     });
     
     // U-CRYPTO-010: Cambio de contraseña (flujo completo D-12)

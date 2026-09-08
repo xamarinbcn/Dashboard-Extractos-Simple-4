@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "whitelist": [
+    "menu_ancho",
+    "menu_colapsado",
+    "idioma",
+    "look"
+  ],
+  "defaults": {
+    "menu_ancho": 240,
+    "menu_colapsado": false,
+    "idioma": "ES",
+    "look": "O"
+  }
+}

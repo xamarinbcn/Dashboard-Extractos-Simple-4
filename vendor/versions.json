@@ -1,0 +1,12 @@
+{
+  "tabulator": {
+    "file": "tabulator.min.js",
+    "version": "6.3.1",
+    "sha256": ""
+  },
+  "echarts": {
+    "file": "echarts.min.js",
+    "version": "5.6.0",
+    "sha256": ""
+  }
+}

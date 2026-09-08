@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "menu-dashboards",
+      "labelKey": "menu_dashboards",
+      "icon": "chart",
+      "expanded": true,
+      "children": [
+        {
+          "id": "menu-dashboard-standard",
+          "route": "panel-preferencias",
+          "labelKey": "menu_dashboard_standard",
+          "visible": "none"
+        },
+        {
+          "id": "menu-dashboard-custom",
+          "route": "panel-preferencias",
+          "labelKey": "menu_dashboard_custom",
+          "visible": "none"
+        }
+      ]
+    },
+    {
+      "id": "menu-extractos",
+      "labelKey": "menu_extractos",
+      "icon": "file",
+      "expanded": false,
+      "children": [
+        {
+          "id": "menu-panel-extractos",
+          "route": "panel-preferencias",
+          "labelKey": "menu_panel_extractos",
+          "visible": "none"
+        },
+        {
+          "id": "menu-panel-norma43",
+          "route": "panel-preferencias",
+          "labelKey": "menu_panel_norma43",
+          "visible": "none"
+        },
+        {
+          "id": "menu-panel-movimientos",
+          "route": "panel-preferencias",
+          "labelKey": "menu_panel_movimientos",
+          "visible": "none"
+        }
+      ]
+    },
+    {
+      "id": "menu-maestros",
+      "labelKey": "menu_maestros",
+      "icon": "book",
+      "expanded": false,
+      "children": [
+        {
+          "id": "menu-panel-maestros",
+          "route": "panel-preferencias",
+          "labelKey": "menu_maestros",
+          "visible": "none"
+        }
+      ]
+    },
+    {
+      "id": "menu-admin",
+      "labelKey": "menu_admin",
+      "icon": "shield",
+      "expanded": false,
+      "children": [
+        {
+          "id": "menu-panel-usuarios",
+          "route": "panel-preferencias",
+          "labelKey": "menu_panel_usuarios",
+          "visible": "admin"
+        }
+      ]
+    },
+    {
+      "id": "menu-preferencias",
+      "labelKey": "menu_preferencias",
+      "icon": "settings",
+      "route": "panel-preferencias",
+      "visible": "all"
+    }
+  ]
+}

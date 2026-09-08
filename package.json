@@ -1,18 +1,20 @@
 {
-  "name": "workspace",
+  "name": "dashboard-extractos-simple-4",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
   "directories": {
     "doc": "docs",
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests/fase-01/run_node.mjs",
+    "test:browser": "npx http-server -p 8080"
   },
-  "keywords": [],
+  "keywords": ["dashboard", "extractos", "banking"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Dashboard de Extractos Simple - Fase 1",
   "devDependencies": {
     "http-server": "^14.1.1"
   }
